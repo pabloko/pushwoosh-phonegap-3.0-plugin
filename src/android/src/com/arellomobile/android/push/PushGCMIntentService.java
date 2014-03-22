@@ -98,8 +98,8 @@ public class PushGCMIntentService extends GCMBaseIntentService
 		extras.putBoolean("foreground", GeneralUtils.isAppOnForeground(context));
 		extras.putBoolean("onStart", !GeneralUtils.isAppOnForeground(context));
 
-		String message = (String) extras.get("title");
-		String header = (String) extras.get("header");
+		String message = (String) extras.get("message");
+		String header = (String) extras.get("title");
 		String link = (String) extras.get("l");
 
 		// empty message with no data
@@ -127,7 +127,7 @@ public class PushGCMIntentService extends GCMBaseIntentService
 				appName = "";
 			}
 
-			header = appName.toString();
+			header = "Test: " + appName.toString();
 		}
 
 		NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
